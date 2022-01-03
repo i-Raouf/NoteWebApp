@@ -1,0 +1,28 @@
+﻿@model Note
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Edit note</h1>
+<hr />
+
+<form method="post" asp-action="Edit">
+    <div class="mb-3">
+        <label asp-for="Title" class="form-label"></label>
+        <input asp-for="Title" type="text" class="form-control" id="title">
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Content" class="form-label"></label>
+        <textarea asp-for=Content class="form-control" style="height: 200px"></textarea>
+        <span asp-validation-for="Content" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+    <a asp-controller="Notes" asp-action="index" class="btn btn-secondary">Back</a>
+</form>
+
+@section Scripts {
+    @{
+    <partial name="_ValidationScriptsPartial" />
+    }
+}

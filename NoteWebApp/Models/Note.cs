@@ -6,7 +6,7 @@ namespace NoteWebApp.Models
     {
         [Key]
         public int Id { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Title can't be empty.")]
         public string Title { get; set; }
         public string Content { get; set; }
         public DateTime LastModified { get; set; } = DateTime.Now;

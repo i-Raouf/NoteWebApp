@@ -1,0 +1,32 @@
+﻿@model List<Note>
+@{
+    ViewData["Title"] = "MyNotes";
+}
+
+<div class="row ">
+    <div class="col">
+        <h1>My Notes</h1>
+    </div>
+    <div class="col text-end mt-3">
+        <a asp-controller="Notes" asp-action="Create" class="btn btn-outline-primary"><i class="bi bi-plus-lg"></i></a>
+    </div>
+</div>
+<hr />
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    @foreach (var note in Model)
+    {
+        <div class="col">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h3 class="card-title">@note.Title</h3>
+                    <p class="text-start"><small class="text-muted">Last updated: @note.LastModified</small></p>
+                    <p class="card-text">@note.Content</p>
+                </div>
+                <div class="card-footer text-end">
+                    <a asp-controller="Notes" asp-action="Edit" asp-route-id="@note.Id" class="btn btn-outline-secondary"><i class="bi bi-pen"></i></a>
+                    <a asp-controller="Notes" asp-action="Delete" asp-route-id="@note.Id" class="btn btn-outline-danger"><i class="bi bi-trash"></i></a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
