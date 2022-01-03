@@ -38,6 +38,7 @@ namespace NoteWebApp.Controllers
             {
                 _db.Notes.Add(note);
                 _db.SaveChanges();
+                TempData["success"] = "Note created successfully";
                 return RedirectToAction("Index");
             }
             return View(note);
@@ -69,6 +70,7 @@ namespace NoteWebApp.Controllers
             {
                 _db.Notes.Update(note);
                 _db.SaveChanges();
+                TempData["success"] = "Note updated successfully";
                 return RedirectToAction("Index");
             }
             return View(note);
@@ -99,6 +101,7 @@ namespace NoteWebApp.Controllers
 
             _db.Notes.Remove(note);
             _db.SaveChanges();
+            TempData["success"] = "Note deleted successfully";
             return RedirectToAction("Index");
 
         }
